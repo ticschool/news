@@ -29,7 +29,10 @@ export default function EditorialPart() {
         >
           {editorialContent.title}
         </Text>
-        <Text fontSize='xl'>{content} . . .</Text>
+        <Text
+          fontSize='xl'
+          dangerouslySetInnerHTML={{ __html: content + ' ...' }}
+        />
       </Flex>
       <Link href={`/content/${editorialContent.id}`} passHref>
         <ChakraLink mt={5} color={appAccentColor} fontSize='xl'>

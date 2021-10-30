@@ -21,7 +21,6 @@ export default function MainNewsCard({ content }: Props) {
       {content.image && (
         <Image
           width='100%'
-          height={450}
           fit='cover'
           src={content.image}
           alt={content.title}
@@ -37,7 +36,12 @@ export default function MainNewsCard({ content }: Props) {
         >
           {content.title}
         </Text>
-        <Text fontSize='xl'>{content.content.substring(0, 200)} . . .</Text>
+        <Text
+          fontSize='xl'
+          dangerouslySetInnerHTML={{
+            __html: content.content.substring(0, 200) + ' . . .',
+          }}
+        />
       </Flex>
       <Link href={`/content/${content.id}`} passHref>
         <ChakraLink mt={5} color={appAccentColor} fontSize='xl'>

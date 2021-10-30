@@ -25,9 +25,14 @@ export default function NewsCard({ content }: Props) {
         {content.title}
       </Text>
 
-      <Text mt={3} fontSize='xl' color={appTextSecondary}>
-        {content.content.substring(0, 200)}
-      </Text>
+      <Text
+        mt={3}
+        fontSize='xl'
+        color={appTextSecondary}
+        dangerouslySetInnerHTML={{
+          __html: content.content.substring(0, 200) + ' . . .',
+        }}
+      />
 
       <Link href={`/content/${content.id}`} passHref>
         <Button
