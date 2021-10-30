@@ -21,9 +21,15 @@ export default function ContentPage({ content }: Props) {
         {content.image && (
           <Image mt={5} src={content.image} alt={content.title} />
         )}
-        <Text fontSize='xl' mt={5} color={appTextSecondary}>
+        {/* <Text fontSize='xl' mt={5} color={appTextSecondary}>
           {content.content}
-        </Text>
+        </Text> */}
+        <Text
+          fontSize='xl'
+          mt={5}
+          color={appTextSecondary}
+          dangerouslySetInnerHTML={{ __html: content.content }}
+        />
       </Flex>
     </Layout>
   );
